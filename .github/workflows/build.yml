@@ -24,6 +24,7 @@ jobs:
           distribution: 'temurin'
       - name: make gradle wrapper executable
         run: chmod +x ./gradlew
+
       - name: build
         run: ./gradlew build
       - name: capture build artifacts
@@ -31,9 +32,8 @@ jobs:
         with:
           name: gradle
           path: |
-            mod/build/libs/*.jar
-            mod-v2/build/libs/*.jar
-            gateway/build/libs/*-all.jar
+            LICENSE
+            build/libs/*.jar
       - name: release
         uses: marvinpinto/action-automatic-releases@latest
         with:
