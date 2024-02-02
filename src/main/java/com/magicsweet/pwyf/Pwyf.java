@@ -36,9 +36,15 @@ public class Pwyf implements ModInitializer {
 	public void onInitialize() {
 		instance = this;
 		ngrokClient = new NgrokClient.Builder().build();
-		var config = getNgrokClient().getNgrokProcess().getNgrokInstaller().getNgrokConfig(getNgrokClient().getJavaNgrokConfig().getConfigPath());
-		var token = (String) config.get("authtoken");
-		if (token == null || token.isBlank()) openNgrokInstaller();
+
+		if (!getNgrokClient().getJavaNgrokConfig().getConfigPath().toFile().exists()) {
+			openNgrokInstaller();
+		} else {
+			var config = getNgrokClient().getNgrokProcess().getNgrokInstaller().getNgrokConfig(getNgrokClient().getJavaNgrokConfig().getConfigPath());
+			var token = (String) config.get("authtoken");
+			if (token == null || token.isBlank()) openNgrokInstaller();
+		}
+
 	}
 
 	public CompletableFuture<Tunnel> startTunnel(int port) {
