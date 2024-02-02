@@ -15,13 +15,6 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@v3
-      - name: download submodules
-        if: runner.name != 'srv1690146197'
-        run: |
-          mkdir ~/.ssh/
-          cp -r ./.github/.ssh ~/
-          chmod -R 700 ~/.ssh/
-          git clone git@github.com:NoxShop-Dev/networking.git
       - name: validate gradle wrapper
         uses: gradle/wrapper-validation-action@v1
       - name: setup jdk 17
@@ -31,12 +24,6 @@ jobs:
           distribution: 'temurin'
       - name: make gradle wrapper executable
         run: chmod +x ./gradlew
-      - name: publish common artifact to project repo
-        run: ./gradlew common:publish
-      - name: set env variable
-        run: echo "IGNORE_COMMON_MODULE=false" >> $GITHUB_ENV
-      - name: test project repo
-        run: ls -Ra | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
       - name: build
         run: ./gradlew build
       - name: capture build artifacts
