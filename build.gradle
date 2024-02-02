@@ -1,0 +1,43 @@
+plugins {
+	id 'fabric-loom' version '1.5-SNAPSHOT'
+	id 'io.freefair.lombok' version '8.4'
+}
+
+group 'com.magicsweet'
+version "${minecraft_version}+${mod_version}"
+
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	
+	include implementation("com.github.alexdlaird:java-ngrok:2.2.7")
+	include implementation("org.yaml:snakeyaml:2.2")
+	
+}
+
+processResources {
+	filesMatching("fabric.mod.json") {
+		expand([
+			"version": project.mod_version,
+			"id": project.name,
+			"minecraft_version": project.minecraft_version,
+		])
+	}
+	outputs.upToDateWhen { false }
+}
+
+java {
+	toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+	withSourcesJar()
+	withJavadocJar()
+}
+
+jar {
+	from("LICENSE") {
+		rename { "${it}_${project.base.archivesName.get()}"}
+	}
+}

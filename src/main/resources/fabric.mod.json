@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "${id}",
+	"version": "${version}",
+	"name": "Play With Your Friends",
+	"description": "Allows you to play with your friends sharing singleplayer world to the internet",
+	"authors": [
+		"MagicSweet"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/pwyf/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.magicsweet.pwyf.Pwyf"
+		]
+	},
+	"mixins": [
+		"pwyf.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.6",
+		"minecraft": "~${minecraft_version}",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}

@@ -1,0 +1,6 @@
+{
+  "pwyf.opening": "Starting TCP tunnel, hold on!",
+  "pwyf.error.not_open": "Something bad happened and your tunnel did not open. Please check the logs or contacts devs :/\n%s",
+  "pwyf.ready": "Your tunnel is ready! Share the following IP with your friends: [%s]",
+  "pwyf.copy_ip": "Click to copy"
+}
