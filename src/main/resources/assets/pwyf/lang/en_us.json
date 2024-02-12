@@ -2,5 +2,22 @@
   "pwyf.opening": "Starting TCP tunnel, hold on!",
   "pwyf.error.not_open": "Something bad happened and your tunnel did not open. Please check the logs or contacts devs :/\n%s",
   "pwyf.ready": "Your tunnel is ready! Share the following IP with your friends: [%s]",
-  "pwyf.copy_ip": "Click to copy"
+  "pwyf.copy_ip": "Click to copy",
+  "pwyf.status": "Tunnel: %s",
+  "pwyf.token": "Ngrok token",
+  "pwyf.testing": "Testing...",
+  "pwyf.success": "Success!",
+  "pwyf.success.message": "Your token is valid! Enjoy your tunnel (lol)",
+  "pwyf.failed": "Failed",
+  "pwyf.failed.message": "Your token is invalid or something went wrong. Check the logs.",
+  "pwyf.token_length": "Ngrok token should exactly be 49 characters long (yours: %s)",
+  "pwyf.status.not_installed": "Not installed",
+  "pwyf.status.not_configured": "No token",
+  "pwyf.status.testing": "Testing...",
+  "pwyf.status.ready": "Ready",
+  "pwyf.status.running": "Running",
+  "pwyf.token_hint.1": "Please sign up at ngrok.com and enter your auth token below",
+  "pwyf.token_hint.2": "After you sign up, click 'Add Tunnel Authtoken', then 'Save' and 'Copy & Close'",
+  "pwyf.token_hint.3": "Then paste the thing you just copied into the box below and click 'Done'",
+  "pwyf.token_hint.click": "> Click here to open ngrok.com"
 }

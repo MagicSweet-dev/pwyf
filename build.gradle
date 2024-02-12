@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.magicsweet'
-version "${minecraft_version}+${mod_version}"
+version "${mod_version}+${minecraft_version}"
 
 
 dependencies {
@@ -35,6 +35,12 @@ java {
 	withSourcesJar()
 	withJavadocJar()
 }
+
+
+loom {
+	accessWidenerPath = file("src/main/resources/pwyf.accesswidener")
+}
+
 
 jar {
 	from("LICENSE") {
